@@ -1,1 +1,1 @@
-# Predicting-a-pulsar-star
+# Predicting a pulsar star
