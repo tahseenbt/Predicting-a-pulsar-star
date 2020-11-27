@@ -13,4 +13,4 @@ def predict():
     res = model.predict(int_features)
     return render_template('index.html', prediction_text=results[int(res)])
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(threaded=True, port=5000)
