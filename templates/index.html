@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  background-image: url("https://photojournal.jpl.nasa.gov/jpeg/PIA18841.jpg");
+  background-size:cover;
+  font-size: 17px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  color: white;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 16 -16px;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-50,
+.col-75 {
+  padding: 0 12px;
+}
+
+.container {
+  color: white;
+  padding: 5px 2px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+input[type=text] {
+  color: black;
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.btn {
+  display: block;
+  background-color: #0066ff;
+  color: white;
+  padding: 10px;
+  margin: 0 auto;
+  border: none;
+  width: 60%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+  border-radius: 20px;
+}
+
+.btn:hover {
+  background-color: #0033cc;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Pulsar star predictor</h2>
+<p>A machine learning powered application which identifies the existence of a pulsar star.</p>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/predict" method="post">
+
+        <div class="row">
+          <div class="col-50">
+            <h3>Integrated Profile</h3>
+            <label for="ipmean">Mean</label>
+            <input type="text" id="ipmean" name="ipmean" placeholder="99.3671875" required="required">
+            <label for="ipsd">Standard deviation</label>
+            <input type="text" id="ipsd" name="ipsd" placeholder="41.57220208" required="required">
+            <label for="ipek">Excess kurtosis</label>
+            <input type="text" id="ipek" name="ipek" placeholder="1.547196967" required="required">
+            <label for="ips">Skewness</label>
+            <input type="text" id="ips" name="ips" placeholder="4.154106043" required="required">
+          </div>
+
+          <div class="col-50">
+            <h3>DM-SNR curve</h3>
+            <label for="dcmean">Mean</label>
+            <input type="text" id="dcmean" name="dcmean" placeholder="27.55518395" required="required">
+            <label for="dcsd">Standard deviation</label>
+            <input type="text" id="dcsd" name="dcsd" placeholder="61.71901588" required="required">
+            <label for="dcek">Excess kurtosis</label>
+            <input type="text" id="dcek" name="dcek" placeholder="2.20880796" required="required">
+            <label for="dcs">Skewness</label>
+            <input type="text" id="dcs" name="dcs" placeholder="3.662680136" required="required">
+          </div>
+
+        </div>
+        <input type="submit" value="Is it a pulsar star?" class="btn">
+      </form>
+    </div>
+  </div>
+  <br>
+  <br>
+</div>
+<br>
+<br>
+<div style="text-align: center; font-size: 30px"> {{ prediction_text }} </div>
+
+</body>
+</html>
