@@ -16,6 +16,8 @@ python app.py
 ```
 Next, navigate to the webpage http://127.0.0.1:5000.
 
+If the app is already active, it should be available at https://predicting-a-pulsar-star.herokuapp.com/
+
 ## Repository organization
 
 This repo contains the scripts used to test and train various models, the dataset used for it and the scripts used to have the webapp up and running.
